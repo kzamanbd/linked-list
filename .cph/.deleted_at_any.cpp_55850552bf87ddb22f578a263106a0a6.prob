@@ -1,0 +1,1 @@
+{"name":"Local: deleted_at_any","url":"d:\\Application\\linked-list\\deleted_at_any.cpp","tests":[{"id":1701801762201,"input":"2","output":"10\n30\n40"},{"id":1701801865694,"input":"1","output":"20\n30\n40"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Application\\linked-list\\deleted_at_any.cpp","group":"local","local":true}
