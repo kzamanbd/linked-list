@@ -1,1 +1,0 @@
-{"name":"Local: input_list","url":"d:\\Application\\linked-list\\input_list.cpp","tests":[{"id":1701683792147,"input":"10 20 30 40 50","output":"10 20 30 40 50"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Application\\linked-list\\input_list.cpp","group":"local","local":true}
