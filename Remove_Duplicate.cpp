@@ -21,13 +21,12 @@ void insertAtTail(Node *&head, Node *&tail, int value)
     {
         head = newNode;
         tail = newNode;
+        return;
     }
-    else
-    {
-        tail->next = newNode;
-        tail = newNode;
-    }
+    tail->next = newNode;
+    tail = newNode;
 }
+
 void printList(Node *head)
 {
     Node *currentNode = head;
