@@ -1,29 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
+class ListNode
 {
 public:
     int val;
-    Node *next;
+    ListNode *next;
 
-    Node(int val)
+    ListNode(int val)
     {
         this->val = val;
         this->next = NULL;
     }
 };
 
-void insertAtTail(Node *&head, int value)
+void insertAtTail(ListNode *&head, int value)
 {
-    Node *newNode = new Node(value);
+    ListNode *newNode = new ListNode(value);
     if (head == NULL)
     {
         head = newNode;
     }
     else
     {
-        Node *currentNode = head;
+        ListNode *currentNode = head;
         while (currentNode->next != NULL)
         {
             currentNode = currentNode->next;
@@ -32,9 +32,9 @@ void insertAtTail(Node *&head, int value)
     }
 }
 
-void displayList(Node *head)
+void displayList(ListNode *head)
 {
-    Node *currentNode = head;
+    ListNode *currentNode = head;
     while (currentNode != NULL)
     {
         cout << currentNode->val << " ";
@@ -42,11 +42,11 @@ void displayList(Node *head)
     }
 }
 
-void insertAnyPosition(Node *&head, int position, int val)
+void insertAnyPosition(ListNode *&head, int position, int val)
 {
-    Node *newNode = new Node(val);
+    ListNode *newNode = new ListNode(val);
 
-    Node *currentNode = head;
+    ListNode *currentNode = head;
 
     for (int i = 0; i < position - 1; i++)
     {
@@ -74,7 +74,7 @@ void insertAnyPosition(Node *&head, int position, int val)
 
 int main()
 {
-    Node *head = NULL;
+    ListNode *head = NULL;
 
     while (true)
     {

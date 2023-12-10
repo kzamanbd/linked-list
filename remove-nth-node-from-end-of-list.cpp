@@ -1,29 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
+class ListNode
 {
 public:
     int val;
-    Node *next;
+    ListNode *next;
 
-    Node(int val)
+    ListNode(int val)
     {
         this->val = val;
         this->next = NULL;
     }
 };
 
-void insertAtTail(Node *&head, int value)
+void insertAtTail(ListNode *&head, int value)
 {
-    Node *newNode = new Node(value);
+    ListNode *newNode = new ListNode(value);
     if (head == NULL)
     {
         head = newNode;
     }
     else
     {
-        Node *currentNode = head;
+        ListNode *currentNode = head;
         while (currentNode->next != NULL)
         {
             currentNode = currentNode->next;
@@ -32,14 +32,14 @@ void insertAtTail(Node *&head, int value)
     }
 }
 
-Node *removeNthFromEnd(Node *head, int n)
+ListNode *removeNthFromEnd(ListNode *head, int n)
 {
-    Node *currentNode = head;
+    ListNode *currentNode = head;
     for (int i = 0; i < n; i++)
     {
         currentNode = currentNode->next;
     }
-    Node *deletedNode = currentNode->next;
+    ListNode *deletedNode = currentNode->next;
     currentNode->next = currentNode->next->next;
     delete deletedNode;
     return head;
@@ -49,13 +49,13 @@ int main()
 {
     int x, n;
     cin >> n;
-    Node *head = NULL;
+    ListNode *head = NULL;
     while (cin >> x)
     {
         insertAtTail(head, x);
     }
 
-    Node *currentNode = removeNthFromEnd(head, n);
+    ListNode *currentNode = removeNthFromEnd(head, n);
 
     while (currentNode != NULL)
     {

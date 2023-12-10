@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
+class ListNode
 {
 public:
     int val;
-    Node *next;
+    ListNode *next;
 
-    Node(int val)
+    ListNode(int val)
     {
         this->val = val;
         this->next = NULL;
     }
 };
 
-void insertAtHead(Node *&head, int value)
+void insertAtHead(ListNode *&head, int value)
 {
-    Node *newNode = new Node(value);
+    ListNode *newNode = new ListNode(value);
 
     newNode->next = head;
     head = newNode;
@@ -24,7 +24,7 @@ void insertAtHead(Node *&head, int value)
 
 int main()
 {
-    Node *head = NULL;
+    ListNode *head = NULL;
 
     int testCase;
     cin >> testCase;
@@ -35,7 +35,7 @@ int main()
         insertAtHead(head, x);
     }
 
-    Node *currentNode = head;
+    ListNode *currentNode = head;
 
     while (currentNode != NULL)
     {

@@ -1,29 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
+class ListNode
 {
 public:
     int val;
-    Node *next;
+    ListNode *next;
 
-    Node(int val)
+    ListNode(int val)
     {
         this->val = val;
         this->next = NULL;
     }
 };
 
-void insertAtTail(Node *&head, int value)
+void insertAtTail(ListNode *&head, int value)
 {
-    Node *newNode = new Node(value);
+    ListNode *newNode = new ListNode(value);
     if (head == NULL)
     {
         head = newNode;
     }
     else
     {
-        Node *currentNode = head;
+        ListNode *currentNode = head;
         while (currentNode->next != NULL)
         {
             currentNode = currentNode->next;
@@ -34,7 +34,7 @@ void insertAtTail(Node *&head, int value)
 
 int main()
 {
-    Node *head = NULL;
+    ListNode *head = NULL;
 
     while (true)
     {
@@ -47,7 +47,7 @@ int main()
         insertAtTail(head, x);
     }
 
-    Node *currentNode = head;
+    ListNode *currentNode = head;
 
     int flag = 1;
     while (currentNode != NULL)

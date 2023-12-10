@@ -1,20 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
+class ListNode
 {
 public:
     int val;
-    Node *next;
+    ListNode *next;
 
-    Node(int val)
+    ListNode(int val)
     {
         this->val = val;
         this->next = NULL;
     }
 };
 
-int countSize(Node *head)
+int countSize(ListNode *head)
 {
     int count = 0;
     while (head != NULL)
@@ -25,7 +25,7 @@ int countSize(Node *head)
     return count;
 }
 
-void printList(Node *head)
+void printList(ListNode *head)
 {
     while (head != NULL)
     {
@@ -35,9 +35,9 @@ void printList(Node *head)
     cout << endl;
 }
 
-void insertAtAny(Node *&head, int action, int v)
+void insertAtAny(ListNode *&head, int action, int v)
 {
-    Node *newNode = new Node(v);
+    ListNode *newNode = new ListNode(v);
 
     // insert at head
     if (head == NULL)
@@ -52,7 +52,7 @@ void insertAtAny(Node *&head, int action, int v)
     // insert at tail
     else if (action == 1)
     {
-        Node *currentNode = head;
+        ListNode *currentNode = head;
         while (currentNode->next != NULL)
         {
             currentNode = currentNode->next;
@@ -61,7 +61,7 @@ void insertAtAny(Node *&head, int action, int v)
     }
 }
 
-void deleteNode(Node *&head, int position)
+void deleteNode(ListNode *&head, int position)
 {
     if (position > countSize(head))
     {
@@ -72,14 +72,14 @@ void deleteNode(Node *&head, int position)
         head = head->next;
         return;
     }
-    Node *currentNode = head;
+    ListNode *currentNode = head;
     for (int i = 1; i < position; i++)
     {
         currentNode = currentNode->next;
     }
     if (currentNode != NULL && currentNode->next != NULL)
     {
-        Node *deletedNode = currentNode->next;
+        ListNode *deletedNode = currentNode->next;
         currentNode->next = currentNode->next->next;
         delete deletedNode;
     }
@@ -87,7 +87,7 @@ void deleteNode(Node *&head, int position)
 
 int main()
 {
-    Node *head = NULL;
+    ListNode *head = NULL;
 
     int q;
     cin >> q;

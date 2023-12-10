@@ -1,23 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
+class ListNode
 {
 public:
     int val;
-    Node *next;
+    ListNode *next;
 
-    Node(int val)
+    ListNode(int val)
     {
         this->val = val;
         this->next = NULL;
     }
 };
 
-void insert_at_any(Node *&head, int n, int position = 0)
+void insert_at_any(ListNode *&head, int n, int position = 0)
 {
 
-    Node *newNode = new Node(n);
+    ListNode *newNode = new ListNode(n);
 
     if (position > 0)
     {
@@ -30,7 +30,7 @@ void insert_at_any(Node *&head, int n, int position = 0)
         else
         {
             // insert at N position
-            Node *currentNode = head;
+            ListNode *currentNode = head;
             for (int i = 1; i < position - 1 && currentNode->next != NULL; i++)
             {
                 currentNode = currentNode->next;
@@ -43,7 +43,7 @@ void insert_at_any(Node *&head, int n, int position = 0)
     else
     {
         // insert at tail
-        Node *currentNode = head;
+        ListNode *currentNode = head;
 
         while (currentNode->next != NULL)
         {
@@ -56,9 +56,9 @@ void insert_at_any(Node *&head, int n, int position = 0)
 int main()
 {
 
-    Node *head = new Node(10);
-    Node *a = new Node(20);
-    Node *b = new Node(30);
+    ListNode *head = new ListNode(10);
+    ListNode *a = new ListNode(20);
+    ListNode *b = new ListNode(30);
 
     head->next = a;
     a->next = b;
@@ -67,7 +67,7 @@ int main()
     insert_at_any(head, 50);
     insert_at_any(head, 8000, 1000000);
 
-    Node *currentNode = head;
+    ListNode *currentNode = head;
     while (currentNode != NULL)
     {
         cout << currentNode->val << endl;

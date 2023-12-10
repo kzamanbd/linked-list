@@ -1,23 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
+class ListNode
 {
 public:
     int val;
-    Node *next;
+    ListNode *next;
 
-    Node(int val)
+    ListNode(int val)
     {
         this->val = val;
         this->next = NULL;
     }
 };
 
-void insert_at_tail(Node *&head, int n)
+void insert_at_tail(ListNode *&head, int n)
 {
 
-    Node *newNode = new Node(n);
+    ListNode *newNode = new ListNode(n);
 
     if (head == NULL)
     {
@@ -25,7 +25,7 @@ void insert_at_tail(Node *&head, int n)
     }
     else
     {
-        Node *currentNode = head;
+        ListNode *currentNode = head;
 
         while (currentNode->next != NULL)
         {
@@ -35,12 +35,12 @@ void insert_at_tail(Node *&head, int n)
     }
 }
 
-void deleted_at_any(Node *&head, int position)
+void deleted_at_any(ListNode *&head, int position)
 {
-    Node *currentNode = head;
+    ListNode *currentNode = head;
     if (position - 1 == 0)
     {
-        // Node *deletedNode = currentNode;
+        // ListNode *deletedNode = currentNode;
         head = head->next;
         // delete currentNode;
     }
@@ -50,7 +50,7 @@ void deleted_at_any(Node *&head, int position)
         {
             currentNode = currentNode->next;
         }
-        Node *deletedNode = currentNode->next;
+        ListNode *deletedNode = currentNode->next;
         // currentNode->next = currentNode->next->next;
         currentNode->next = deletedNode->next;
         delete deletedNode;
@@ -62,7 +62,7 @@ int main()
     int n;
     cin >> n;
 
-    Node *head = NULL;
+    ListNode *head = NULL;
     insert_at_tail(head, 10);
     insert_at_tail(head, 20);
     insert_at_tail(head, 30);
@@ -70,7 +70,7 @@ int main()
 
     deleted_at_any(head, n);
 
-    Node *currentNode = head;
+    ListNode *currentNode = head;
     while (currentNode != NULL)
     {
         cout << currentNode->val << endl;
