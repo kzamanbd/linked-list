@@ -75,6 +75,29 @@ ListNode *deleteDuplicates(ListNode *head)
     return head;
 }
 
+/**
+ * remove duplicate unsorted array
+ */
+
+void deleteDuplicatesNode(ListNode *head)
+{
+    ListNode *currentNode = head;
+
+    while (currentNode->next != NULL)
+    {
+        if (currentNode->next->val == head->val)
+        {
+            ListNode *deletedNode = currentNode->next;
+            currentNode->next = deletedNode->next;
+            delete deletedNode;
+        }
+        else
+        {
+            currentNode = currentNode->next;
+        }
+    }
+}
+
 int main()
 {
     ListNode *head = NULL;
@@ -95,6 +118,7 @@ int main()
 
     while (currentNode != NULL)
     {
+        deleteDuplicatesNode(currentNode);
         currentNode = currentNode->next;
     }
 
