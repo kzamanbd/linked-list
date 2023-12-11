@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
+class ListNode
 {
 public:
     int val;
-    Node *next;
+    ListNode *next;
 
-    Node(int val)
+    ListNode(int val)
     {
         this->val = val;
         this->next = NULL;
     }
 };
 
-void insertAtTail(Node *&head, Node *&tail, int value)
+void insertAtTail(ListNode *&head, ListNode *&tail, int value)
 {
-    Node *newNode = new Node(value);
+    ListNode *newNode = new ListNode(value);
     if (head == NULL)
     {
         head = newNode;
@@ -27,9 +27,9 @@ void insertAtTail(Node *&head, Node *&tail, int value)
     tail = newNode;
 }
 
-void printList(Node *head)
+void printList(ListNode *head)
 {
-    Node *currentNode = head;
+    ListNode *currentNode = head;
     while (currentNode != NULL)
     {
         cout << currentNode->val << " ";
@@ -38,10 +38,46 @@ void printList(Node *head)
     cout << endl;
 }
 
+// selection sort
+void sortedList(ListNode *head)
+{
+    for (ListNode *i = head; i->next != NULL; i = i->next)
+    {
+        for (ListNode *j = i->next; j != NULL; j = j->next)
+        {
+            if (i->val > j->val)
+            {
+                swap(i->val, j->val);
+            }
+        }
+    }
+}
+
+void deleteLinkedList(ListNode *head, int value)
+{
+    ListNode *currentNode = head;
+
+    while (currentNode != NULL)
+    {
+        if (currentNode->next != NULL && currentNode->next->val == value)
+        {
+            cout << "It will be deleted " << currentNode->next->val << endl;
+            // ListNode *deletedNode = currentNode->next;
+            // currentNode = deletedNode->next;
+            // delete deletedNode;
+            currentNode = currentNode->next;
+        }
+        else
+        {
+            currentNode = currentNode->next;
+        }
+    }
+}
+
 int main()
 {
-    Node *head = NULL;
-    Node *tail = NULL;
+    ListNode *head = NULL;
+    ListNode *tail = NULL;
 
     while (true)
     {
@@ -54,25 +90,12 @@ int main()
         insertAtTail(head, tail, x);
     }
 
-    vector<int> v;
-    Node *currentNode = head;
-    Node *previousNode = NULL;
+    ListNode *currentNode = head;
 
     while (currentNode != NULL)
     {
-        if (find(v.begin(), v.end(), currentNode->val) == v.end())
-        {
-            v.push_back(currentNode->val);
-            previousNode = currentNode;
-            currentNode = currentNode->next;
-        }
-        else
-        {
-            Node *deletedNode = currentNode;
-            previousNode->next = currentNode->next;
-            currentNode = currentNode->next;
-            delete deletedNode;
-        }
+        deleteLinkedList(head, currentNode->val);
+        currentNode = currentNode->next;
     }
 
     printList(head);

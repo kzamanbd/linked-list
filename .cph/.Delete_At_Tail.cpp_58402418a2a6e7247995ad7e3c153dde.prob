@@ -1,0 +1,1 @@
+{"name":"Local: Delete_At_Tail","url":"d:\\Application\\linked-list\\Delete_At_Tail.cpp","tests":[{"id":1702203509890,"input":"2 4 1 5 3 6 -1","output":"2 4 1 5 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Application\\linked-list\\Delete_At_Tail.cpp","group":"local","local":true}
