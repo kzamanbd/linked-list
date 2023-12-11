@@ -53,25 +53,26 @@ void sortedList(ListNode *head)
     }
 }
 
-void deleteLinkedList(ListNode *head, int value)
+/**
+ * remove duplicate a sorted linked list
+ */
+
+ListNode *deleteDuplicates(ListNode *head)
 {
+
     ListNode *currentNode = head;
 
-    while (currentNode != NULL)
+    while (currentNode && currentNode->next)
     {
-        if (currentNode->next != NULL && currentNode->next->val == value)
+        if (currentNode->val == currentNode->next->val)
         {
-            cout << "It will be deleted " << currentNode->next->val << endl;
-            // ListNode *deletedNode = currentNode->next;
-            // currentNode = deletedNode->next;
-            // delete deletedNode;
-            currentNode = currentNode->next;
+            currentNode->next = currentNode->next->next;
+            continue;
         }
-        else
-        {
-            currentNode = currentNode->next;
-        }
+        currentNode = currentNode->next;
     }
+
+    return head;
 }
 
 int main()
@@ -94,7 +95,6 @@ int main()
 
     while (currentNode != NULL)
     {
-        deleteLinkedList(head, currentNode->val);
         currentNode = currentNode->next;
     }
 
