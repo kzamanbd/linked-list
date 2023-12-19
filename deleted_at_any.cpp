@@ -38,7 +38,7 @@ void insert_at_tail(ListNode *&head, int n)
 void deleted_at_any(ListNode *&head, int position)
 {
     ListNode *currentNode = head;
-    if (position - 1 == 0)
+    if (position == 0)
     {
         // ListNode *deletedNode = currentNode;
         head = head->next;

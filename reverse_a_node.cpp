@@ -14,6 +14,18 @@ public:
     }
 };
 
+void reverseList(ListNode *&head, ListNode *current)
+{
+    if (current->next == NULL)
+    {
+        head = current;
+        return;
+    }
+    reverseList(head, current->next);
+    current->next->next = current;
+    current->next = NULL;
+}
+
 int main()
 {
     ListNode *head = new ListNode(10);
